@@ -4,9 +4,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
-import LightLogo from '../../public/LightBG Logo.png';
-import LightMobileLogo from '../../public/LightBG Mobile Logo.png';
+import Logo from './Logo';
+
 
 interface MenuItem {
   name: string;
@@ -26,13 +25,7 @@ export default function Navbar({ menuItems, isSticky = false }: NavbarProps) {
     <nav className={`w-full top-0 z-50 bg-white shadow-md ${isSticky ? 'sticky' : ''},`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between items-center">
-          <div className="flex-shrink-0">
-            <Link href="/">
-              <Image className='hidden sm:block' src={LightLogo} alt="Logo" width={150} height={100} />
-              <Image className='block sm:hidden' src={LightMobileLogo} alt="Logo" width={50} height={50} />
-            </Link>
-          </div>
-
+          <Logo />
           {/* Desktop menu */}
           <div className="hidden md:flex space-x-6">
             {menuItems.map(item => (
